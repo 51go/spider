@@ -1,0 +1,12 @@
+server:
+  port: 8733
+spring:
+  application:
+    name: wechat-stat
+  datasource:
+    url: jdbc:mysql://localhost:3306/news?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
