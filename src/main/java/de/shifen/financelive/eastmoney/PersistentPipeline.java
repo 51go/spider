@@ -12,6 +12,7 @@ import us.codecraft.webmagic.ResultItems;
 import us.codecraft.webmagic.Task;
 import us.codecraft.webmagic.pipeline.Pipeline;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,6 +21,7 @@ import java.util.Optional;
  */
 @Service
 public class PersistentPipeline implements Pipeline {
+    @Resource
     NewDboRepo newDboRepo;
     ObjectMapper objectMapper = new ObjectMapper();
     @Override

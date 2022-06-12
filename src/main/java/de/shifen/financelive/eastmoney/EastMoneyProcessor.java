@@ -50,7 +50,7 @@ public class EastMoneyProcessor implements PageProcessor {
             Date at = parseDate(time);
             item.setTime(at);
             item.setUri(link);
-            item.setUniqueId(md5(link)+at.getTime());
+            item.setUniqueId(md5(link+at.getTime()));
             items.add(item);
 
         }
@@ -78,7 +78,7 @@ public class EastMoneyProcessor implements PageProcessor {
     public Date parseDate(String timeStr){
         Calendar calendar = Calendar.getInstance();
         String hour = timeStr.substring(0,timeStr.indexOf(":"));
-        String minute = timeStr.substring(timeStr.indexOf(":"));
+        String minute = timeStr.substring(timeStr.indexOf(":")+1);
         calendar.set(Calendar.HOUR,Integer.parseInt(hour));
         calendar.set(Calendar.MINUTE,Integer.parseInt(minute));
         return calendar.getTime();
