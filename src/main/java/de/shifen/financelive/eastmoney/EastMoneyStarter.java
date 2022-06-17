@@ -1,6 +1,5 @@
 package de.shifen.financelive.eastmoney;
 
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import us.codecraft.webmagic.Spider;
@@ -11,7 +10,7 @@ import javax.annotation.Resource;
  * @author ms404
  */
 @Service
-public class EastMoneyStarter implements CommandLineRunner {
+public class EastMoneyStarter  {
 
     @Resource
     EastMoneyProcessor eastMoneyProcessor ;
@@ -29,14 +28,9 @@ public class EastMoneyStarter implements CommandLineRunner {
         }
     }
 
-    @Override
-    public void run(String... args) throws Exception {
-        Worker worker = new Worker();
-        worker.start();
-    }
+
     public void fire(){
-        spider =
-        Spider.create(eastMoneyProcessor);
+        spider = Spider.create(eastMoneyProcessor);
         spider.addUrl("https://kuaixun.eastmoney.com/").addPipeline(printPipeline).thread(2).run();
     }
 
@@ -46,6 +40,7 @@ public class EastMoneyStarter implements CommandLineRunner {
      */
     @Scheduled(fixedDelay = 600000L)
     public void cron(){
-        spider.addUrl("https://kuaixun.eastmoney.com/?"+System.currentTimeMillis());
+        Worker worker = new Worker();
+        worker.start();
     }
 }

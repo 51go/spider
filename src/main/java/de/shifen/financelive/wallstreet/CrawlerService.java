@@ -50,9 +50,11 @@ public class CrawlerService {
             newDto.setSource(ApiClient.SOURCE);
             newDto.setTitle(newsItem.getTitle());
             newDto.setDisplayTime(newsItem.getDisplayTime());
-            newDto.setAuthorAvatar((newsItem.getAuthor().getAvatar()));
-            newDto.setAuthorName(newsItem.getAuthor().getDisplayName());
-            newDto.setAuthorId(String.valueOf(newsItem.getAuthor().getId()));
+            if(null!=newsItem.getAuthor()) {
+                newDto.setAuthorAvatar((newsItem.getAuthor().getAvatar()));
+                newDto.setAuthorName(newsItem.getAuthor().getDisplayName());
+                newDto.setAuthorId(String.valueOf(newsItem.getAuthor().getId()));
+            }
             newDtoRepo.save(newDto);
         }
     }
