@@ -6,7 +6,6 @@ import de.shifen.financelive.wallstreet.pojo.WallstreetApiResponse;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import org.apache.catalina.mapper.Mapper;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
