@@ -34,4 +34,5 @@ public class ApiClient {
         String body = Objects.requireNonNull(response.body()).string();
         return mapper.readValue(body,WallstreetApiResponse.class);
     }
+
 }

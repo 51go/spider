@@ -17,7 +17,7 @@ import java.util.Optional;
  */
 @Service
 @Slf4j
-public class CrawlerService {
+public class WallstreetCrawlerService {
     @Resource
     ApiClient apiClient;
 

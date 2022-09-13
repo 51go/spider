@@ -1,10 +1,18 @@
 package de.shifen.financelive.dto;
 
 import lombok.*;
+import org.ansj.app.keyword.Keyword;
 import org.hibernate.Hibernate;
+import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
 
 import javax.persistence.*;
+import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.vladmihalcea.hibernate.type.json.JsonStringType;
 
 /**
  * @author ms404
@@ -19,6 +27,7 @@ import java.util.Objects;
 @Setter
 @ToString
 @NoArgsConstructor
+@TypeDef(name="json",typeClass = JsonStringType.class)
 public class NewDto {
 
     @Id
@@ -52,4 +61,9 @@ public class NewDto {
 
     @Column(name="from_where",columnDefinition = "varchar(32)")
     String fromWhere;
+
+    @Column(name="nl_handled_at",columnDefinition = "bigint(20) default 0")
+    long nlpHandledAt;
+
+
 }

@@ -38,15 +38,19 @@ public class EastMoneyProcessor implements PageProcessor {
             String full = node.xpath("//h2/a/text()").get();
             String link = node.xpath("//h2/a/@href").get();
             Item item = new Item();
-
-            String title1 = full.substring(0, full.indexOf("】")).replace("【", "");
-            item.setTitle(title1);
-            String content1 = full.substring(full.indexOf("】") + 1,
-                    full.lastIndexOf("。") + 1);
-            item.setContent(content1);
-            String from = full.substring(full.lastIndexOf("。") + 1).replace("（", "")
-                    .replace("）", "");
-            item.setFrom(from);
+            try {
+                String title1 = full.substring(0, full.indexOf("】")).replace("【", "");
+                item.setTitle(title1);
+                String content1 = full.substring(full.indexOf("】") + 1,
+                        full.lastIndexOf("。") + 1);
+                item.setContent(content1);
+                String from = full.substring(full.lastIndexOf("。") + 1).replace("（", "")
+                        .replace("）", "");
+                item.setFrom(from);
+            }catch (Exception e){
+                item.setTitle(full);
+                item.setContent(full);
+            }
             Date at = parseDate(time);
             item.setTime(at);
             item.setUri(link);

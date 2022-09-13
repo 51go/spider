@@ -1,12 +1,9 @@
 package de.shifen.financelive.eastmoney;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import de.shifen.financelive.dto.NewDto;
 import de.shifen.financelive.eastmoney.pojo.Item;
 import de.shifen.financelive.repo.NewDboRepo;
-import de.shifen.financelive.wallstreet.api.ApiClient;
-import de.shifen.financelive.wallstreet.pojo.NewsItem;
 import org.springframework.stereotype.Service;
 import us.codecraft.webmagic.ResultItems;
 import us.codecraft.webmagic.Task;
